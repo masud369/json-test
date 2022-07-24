@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json</title>
+</head>
+
+<body>
+    <script>
+        //Json to object
+        const groupS = {
+            groupone: "form satkhira",
+            grouptwo: "form khulna",
+            groupthree: "form jessor",
+            gorupname: "shapla",
+            rohim: 5,
+            korim: 10,
+            masud: "mr9",
+            notgoodatgame: ["rohim", "korim"],
+                    
+            }
+        //     {
+        //     "groupone2" : "form satkhira2",
+        //     "grouptwo2": "form khulna2",
+        //     "groupthree2": "form jessor2",
+        //     "gorup name2": {
+        //         "satkhira2": "shapla2",
+        //         "group members2": {
+        //             "rohim2": 25,
+        //             "korim2": 20,
+        //             "masud2": "369",
+        //             "not good at game2": ["rohim2", "korim2"],
+        //         }
+        //     }
+        // }
+
+        ///}
+
+      //convert for javascript
+      console.log(groupS);
+    //   making json
+    const jsnStringfy = JSON.stringify(groupS);
+    console.log(jsnStringfy);
+    const jsnParse = JSON.parse(jsnStringfy);
+    console.log(jsnParse);
+    </script>
+</body>
+
+</html>
