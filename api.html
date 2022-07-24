@@ -9,6 +9,13 @@
 </head>
 
 <body>
+
+    <div id="ist-item"> 
+        <h2>json holders api are given blow</h2>
+    </div>
+
+
+
     <script>
         //Json to object
         const groupS = {
@@ -46,6 +53,38 @@
     console.log(jsnStringfy);
     const jsnParse = JSON.parse(jsnStringfy);
     console.log(jsnParse);
+      
+    
+    //data calling form jsonholder api
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(json => usersData(json))
+
+
+    function usersData(user){
+        const listItem = document.getElementById("ist-item");
+       const users = user.map((u)=>{
+        const userName = u.name;
+        console.log(userName);
+        const li = document.createElement("li");
+        li.innerText = userName;
+        listItem.appendChild(li);
+    
+    });
+       //console.log(users);
+    } 
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 
