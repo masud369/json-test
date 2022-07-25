@@ -22,6 +22,18 @@
         <button id="click">get</button>
 
     </div>
+    <div id="board-api">
+        <h2 id="board-activity">Posting input data through api</h2>
+
+
+
+    </div>
+    <div id="random-api">
+        <h2 id="random-api-check">Posting namelist data through random api</h2>
+
+
+
+    </div>
 
 
 
@@ -90,7 +102,7 @@
         document.getElementById("click").addEventListener("click", function () {
             const title = document.getElementById("title").value;
             const body = document.getElementById("body").value;
-            
+
             const remotAip = {
                 title: title,
                 body: body,
@@ -108,18 +120,48 @@
             })
                 .then(response => response.json())
                 .then(json => console.log(json))
+                .catch(err => console.log('Error found' + err))
         }
 
 
-        creatPost(remotAip);
 
 
+        //Board api
 
+        const createNew = () => {
+            fetch('http://www.boredapi.com/api/activity/')
+                .then(response=>response.json())
+                .then((result) => {
+                    document.getElementById("board-activity").innerText = result.type;
+                    console.log(result);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
 
+        }
+        createNew();
+        // setInterval(() => {
+        //     createNew(); 
+        // }, 2000);
+            
+        //Random user api
+        fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then((rslt) =>{
+                const resultNameArr = rslt.results[0];
+                console.log(resultNameArr)
+                console.log(rslt)
+                const nameTitle = resultNameArr.name.title;
+                const firstName = resultNameArr.name.first;
+                const lastName = resultNameArr.name.last;
+                const userName = `${nameTitle} ${firstName} ${lastName} `;
+                console.log(userName);
+                document.getElementById("random-api-check").innerText = userName;
 
-
-
-
+            }
+        )
+        .catch(err=> console.log(err));    
 
     </script>
 </body>
